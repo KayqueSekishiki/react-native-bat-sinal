@@ -17,17 +17,20 @@ export default function FormScreen(props: any) {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
+  const [modal, setModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("placeholder");
+
   const [errorName, setErrorName] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPhone, setErrorPhone] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = () => {
+    toggleModal();
     if (handleError()) {
-      console.log("Deu Erro");
-      console.log({ name, email, phone, message });
+      setModalMessage("Por favor, corrija os erros no formulário.");
     } else {
-      console.log("Enviado");
+      setModalMessage("Bat sinal enviado com SUCESSO!");
     }
   };
 
@@ -64,59 +67,79 @@ export default function FormScreen(props: any) {
     return error;
   };
 
+  function handleModal() {
+    toggleModal();
+    if (handleError()) {
+    }
+  }
+
+  function toggleModal() {
+    setModal(!modal);
+  }
+
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={() => props.toggleSignal()}>
-        <Image source={bat} style={styles.batLogo} resizeMode="contain" />
-      </TouchableOpacity>
+    <>
+      {!modal && (
+        <View style={styles.container}>
+          <TouchableOpacity onPress={() => props.toggleSignal()}>
+            <Image source={bat} style={styles.batLogo} resizeMode="contain" />
+          </TouchableOpacity>
 
-      <Text style={styles.label}>Nome:</Text>
-      <TextInput
-        style={styles.input}
-        value={name}
-        onChangeText={setName}
-        placeholder="Digite seu nome"
-        placeholderTextColor="gray"
-      />
-      <Text style={styles.error}>{errorName}</Text>
+          <Text style={styles.label}>Nome:</Text>
+          <TextInput
+            style={styles.input}
+            value={name}
+            onChangeText={setName}
+            placeholder="Digite seu nome"
+            placeholderTextColor="gray"
+          />
+          <Text style={styles.error}>{errorName}</Text>
 
-      <Text style={styles.label}>Email:</Text>
-      <TextInput
-        style={styles.input}
-        value={email}
-        onChangeText={setEmail}
-        placeholder="Digite seu email"
-        keyboardType="email-address"
-        placeholderTextColor="gray"
-      />
-      <Text style={styles.error}>{errorEmail}</Text>
+          <Text style={styles.label}>Email:</Text>
+          <TextInput
+            style={styles.input}
+            value={email}
+            onChangeText={setEmail}
+            placeholder="Digite seu email"
+            keyboardType="email-address"
+            placeholderTextColor="gray"
+          />
+          <Text style={styles.error}>{errorEmail}</Text>
 
-      <Text style={styles.label}>Telefone:</Text>
-      <TextInput
-        style={styles.input}
-        value={phone}
-        onChangeText={setPhone}
-        placeholder="Digite seu phone"
-        keyboardType="phone-pad"
-        placeholderTextColor="gray"
-      />
-      <Text style={styles.error}> {errorPhone}</Text>
+          <Text style={styles.label}>Telefone:</Text>
+          <TextInput
+            style={styles.input}
+            value={phone}
+            onChangeText={setPhone}
+            placeholder="Digite seu phone"
+            keyboardType="phone-pad"
+            placeholderTextColor="gray"
+          />
+          <Text style={styles.error}> {errorPhone}</Text>
 
-      <Text style={styles.label}>Qual a emergência?</Text>
-      <TextInput
-        style={[styles.input, styles.textArea]}
-        value={message}
-        onChangeText={setMessage}
-        placeholder="Descreva a emergência"
-        multiline
-        numberOfLines={4}
-        placeholderTextColor="gray"
-      />
-      <Text style={styles.error}>{errorMessage}</Text>
+          <Text style={styles.label}>Qual a emergência?</Text>
+          <TextInput
+            style={[styles.input, styles.textArea]}
+            value={message}
+            onChangeText={setMessage}
+            placeholder="Descreva a emergência"
+            multiline
+            numberOfLines={4}
+            placeholderTextColor="gray"
+          />
+          <Text style={styles.error}>{errorMessage}</Text>
 
-      <TouchableOpacity onPress={handleSubmit}>
-        <Text style={styles.button}>Enviar</Text>
-      </TouchableOpacity>
-    </View>
+          <TouchableOpacity onPress={handleSubmit}>
+            <Text style={styles.button}>Enviar</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+
+      {modal && (
+        <TouchableOpacity style={styles.modalContainer} onPress={handleModal}>
+          <Text style={styles.modalMessage}>{modalMessage}</Text>
+        </TouchableOpacity>
+      )}
+    </>
   );
 }

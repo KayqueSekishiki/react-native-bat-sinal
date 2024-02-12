@@ -50,4 +50,19 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 20,
   },
+  modalContainer: {
+    position: "absolute",
+    display: "flex",
+    width: "100%",
+    height: "100%",
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#262626",
+  },
+  modalMessage: {
+    color: "#ffffff",
+    fontSize: 18,
+  },
 });
