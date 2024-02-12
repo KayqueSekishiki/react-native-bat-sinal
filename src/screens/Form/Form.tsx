@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
   Button,
+  ScrollView,
 } from "react-native";
 import bat from "../../../assets/pictures/bat.jpg";
 
@@ -79,7 +80,7 @@ export default function FormScreen(props: any) {
   return (
     <>
       {!modal && (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
           <TouchableOpacity onPress={() => props.toggleSignal()}>
             <Image source={bat} style={styles.batLogo} resizeMode="contain" />
           </TouchableOpacity>
@@ -89,7 +90,7 @@ export default function FormScreen(props: any) {
             style={styles.input}
             value={name}
             onChangeText={setName}
-            placeholder="Digite seu nome"
+            placeholder="Digite o seu nome"
             placeholderTextColor="gray"
           />
           <Text style={styles.error}>{errorName}</Text>
@@ -99,7 +100,7 @@ export default function FormScreen(props: any) {
             style={styles.input}
             value={email}
             onChangeText={setEmail}
-            placeholder="Digite seu email"
+            placeholder="Digite o seu melhor email"
             keyboardType="email-address"
             placeholderTextColor="gray"
           />
@@ -110,7 +111,7 @@ export default function FormScreen(props: any) {
             style={styles.input}
             value={phone}
             onChangeText={setPhone}
-            placeholder="Digite seu phone"
+            placeholder="Digite seu telefone"
             keyboardType="phone-pad"
             placeholderTextColor="gray"
           />
@@ -121,7 +122,7 @@ export default function FormScreen(props: any) {
             style={[styles.input, styles.textArea]}
             value={message}
             onChangeText={setMessage}
-            placeholder="Descreva a emergência"
+            placeholder="Descreva a sua emergência"
             multiline
             numberOfLines={4}
             placeholderTextColor="gray"
@@ -129,9 +130,9 @@ export default function FormScreen(props: any) {
           <Text style={styles.error}>{errorMessage}</Text>
 
           <TouchableOpacity onPress={handleSubmit}>
-            <Text style={styles.button}>Enviar</Text>
+            <Text style={styles.button}>Enviar Bat Sinal</Text>
           </TouchableOpacity>
-        </View>
+        </ScrollView>
       )}
 
       {modal && (

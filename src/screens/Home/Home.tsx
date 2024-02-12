@@ -9,7 +9,7 @@ export default function HomeScreen(props: any) {
       <Image source={bat} style={styles.batLogo} resizeMode="contain" />
       <View>
         <TouchableOpacity onPress={() => props.toggleSignal()}>
-          <Text style={styles.button}>Activate Bat Signal</Text>
+          <Text style={styles.button}>Ativar Bat Sinal</Text>
         </TouchableOpacity>
       </View>
     </View>
