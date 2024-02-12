@@ -69,8 +69,7 @@ export default function FormScreen(props: any) {
 
   function handleModal() {
     toggleModal();
-    if (handleError()) {
-    }
+    if (!handleError()) props.toggleSignal();
   }
 
   function toggleModal() {
