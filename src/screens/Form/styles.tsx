@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     paddingRight: 20,
   },
   batLogo: {
-    width: 100,
+    width: "100%",
     height: 100,
     marginBottom: 10,
     position: "relative",
@@ -26,13 +26,13 @@ export const styles = StyleSheet.create({
   input: {
     borderWidth: 2,
     borderColor: "#262626",
-    padding: 10,
-    marginBottom: 25,
+    padding: 8,
+    marginBottom: 5,
     borderRadius: 5,
   },
   textArea: {
-    height: 100,
-    marginBottom: 25,
+    height: 80,
+    marginBottom: 5,
   },
   button: {
     width: "100%",
@@ -43,6 +43,11 @@ export const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
-    marginTop: 50,
+    marginTop: 25,
+  },
+  error: {
+    color: "red",
+    fontSize: 14,
+    marginBottom: 20,
   },
 });

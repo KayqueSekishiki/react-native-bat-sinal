@@ -18,9 +18,9 @@ export default function FormScreen(props: any) {
   const [message, setMessage] = useState("");
 
   const [errorName, setErrorName] = useState("");
-  const [erroEmail, setErrorEmail] = useState("");
-  const [erroTelefone, setErrorPhone] = useState("");
-  const [erroMensagem, setErrorMessage] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
+  const [errorPhone, setErrorPhone] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = () => {
     if (handleError()) {
@@ -78,6 +78,7 @@ export default function FormScreen(props: any) {
         placeholder="Digite seu nome"
         placeholderTextColor="gray"
       />
+      <Text style={styles.error}>{errorName}</Text>
 
       <Text style={styles.label}>Email:</Text>
       <TextInput
@@ -88,6 +89,7 @@ export default function FormScreen(props: any) {
         keyboardType="email-address"
         placeholderTextColor="gray"
       />
+      <Text style={styles.error}>{errorEmail}</Text>
 
       <Text style={styles.label}>Telefone:</Text>
       <TextInput
@@ -98,6 +100,7 @@ export default function FormScreen(props: any) {
         keyboardType="phone-pad"
         placeholderTextColor="gray"
       />
+      <Text style={styles.error}> {errorPhone}</Text>
 
       <Text style={styles.label}>Qual a emergência?</Text>
       <TextInput
@@ -109,6 +112,7 @@ export default function FormScreen(props: any) {
         numberOfLines={4}
         placeholderTextColor="gray"
       />
+      <Text style={styles.error}>{errorMessage}</Text>
 
       <TouchableOpacity onPress={handleSubmit}>
         <Text style={styles.button}>Enviar</Text>
