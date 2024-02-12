@@ -11,11 +11,58 @@ import bat from "../../../assets/pictures/bat.jpg";
 
 import { styles } from "./styles";
 
-export default function FormScreen(props) {
+export default function FormScreen(props: any) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+
+  const [errorName, setErrorName] = useState("");
+  const [erroEmail, setErrorEmail] = useState("");
+  const [erroTelefone, setErrorPhone] = useState("");
+  const [erroMensagem, setErrorMessage] = useState("");
+
+  const handleSubmit = () => {
+    if (handleError()) {
+      console.log("Deu Erro");
+      console.log({ name, email, phone, message });
+    } else {
+      console.log("Enviado");
+    }
+  };
+
+  const handleError = () => {
+    let error = false;
+    setErrorName("");
+    setErrorEmail("");
+    setErrorPhone("");
+    setErrorMessage("");
+
+    if (!name) {
+      setErrorName("Por favor, insira o seu nome.");
+      error = true;
+    }
+
+    if (!email) {
+      setErrorEmail("Por favor, insira o seu email.");
+      error = true;
+    } else if (!email.includes("@")) {
+      setErrorEmail("Por favor, insira um email válido.");
+      error = true;
+    }
+
+    if (!phone) {
+      setErrorPhone("Por favor, insira o seu telefone.");
+      error = true;
+    }
+
+    if (!message) {
+      setErrorMessage("Por favor, descreva a emergência.");
+      error = true;
+    }
+
+    return error;
+  };
 
   return (
     <View style={styles.container}>
@@ -63,7 +110,7 @@ export default function FormScreen(props) {
         placeholderTextColor="gray"
       />
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleSubmit}>
         <Text style={styles.button}>Enviar</Text>
       </TouchableOpacity>
     </View>
