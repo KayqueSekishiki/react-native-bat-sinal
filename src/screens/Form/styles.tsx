@@ -1,0 +1,48 @@
+import { StyleSheet } from "react-native";
+
+export const styles = StyleSheet.create({
+  container: {
+    width: "80%",
+    height: "100%",
+    flex: 1,
+    paddingTop: 50,
+    paddingBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
+  batLogo: {
+    width: 100,
+    height: 100,
+    marginBottom: 10,
+    position: "relative",
+    left: -10,
+  },
+  label: {
+    color: "#262626",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 8,
+  },
+  input: {
+    borderWidth: 2,
+    borderColor: "#262626",
+    padding: 10,
+    marginBottom: 25,
+    borderRadius: 5,
+  },
+  textArea: {
+    height: 100,
+    marginBottom: 25,
+  },
+  button: {
+    width: "100%",
+    color: "#ffffff",
+    backgroundColor: "#262626",
+    borderRadius: 10,
+    padding: 20,
+    fontSize: 30,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginTop: 50,
+  },
+});
