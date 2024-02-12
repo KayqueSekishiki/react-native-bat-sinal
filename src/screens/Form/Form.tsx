@@ -11,7 +11,7 @@ import bat from "../../../assets/pictures/bat.jpg";
 
 import { styles } from "./styles";
 
-export default function FormScreen() {
+export default function FormScreen(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -19,7 +19,7 @@ export default function FormScreen() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => props.toggleSignal()}>
         <Image source={bat} style={styles.batLogo} resizeMode="contain" />
       </TouchableOpacity>
 

@@ -5,11 +5,19 @@ import Home from "./src/screens/Home/Home";
 import Form from "./src/screens/Form/Form";
 
 export default function App() {
-  const [openForm, setOpenForm] = useState(true);
+  const [openForm, setOpenForm] = useState(false);
+
+  function toggleSignal() {
+    setOpenForm(!openForm);
+  }
 
   return (
     <View style={styles.container}>
-      {openForm === true ? <Form></Form> : <Home></Home>}
+      {openForm === true ? (
+        <Form toggleSignal={toggleSignal}></Form>
+      ) : (
+        <Home toggleSignal={toggleSignal}></Home>
+      )}
       <StatusBar style="dark" />
     </View>
   );
