@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
   batLogo: {
     width: "150%",
     height: "50%",
+    marginBottom: 50,
   },
   button: {
     width: "100%",
@@ -22,7 +23,6 @@ export const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 20,
     paddingRight: 20,
-    marginTop: 50,
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
